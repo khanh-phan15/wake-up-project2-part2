@@ -172,8 +172,11 @@ function displayImage() {
             // Letter
             const input1_letter = document.getElementById("charInput1").value.toUpperCase();
             const input2_letter = document.getElementById("charInput2").value.toUpperCase();
-
-                if (input1_letter.length !== 1 || input2_letter.length !== 1) {
+            
+            // Number
+            const input1_number = input1_letter.charCodeAt(0); //Converts the letter to a number (https://www.ascii-code.com); For instance, 'A' is 65 in ASCII
+            const input2_number = input2_letter.charCodeAt(0); //Converts the letter to a number (https://www.ascii-code.com); For instance, 'A' is 65 in ASCII
+            if (input1_letter.length !== 1 || input2_letter.length !== 1) {
                     imgElement.src = "images/broken-clock.png"; 
                     imgElement.style.display = "block"; 
                     return; 
@@ -185,11 +188,6 @@ function displayImage() {
                     imgElement.style.display = "block"; 
                     return;
                 }
-            
-            // Number
-            const input1_number = input1_letter.charCodeAt(0); //Converts the letter to a number (https://www.ascii-code.com); For instance, 'A' is 65 in ASCII
-            const input2_number = input2_letter.charCodeAt(0); //Converts the letter to a number (https://www.ascii-code.com); For instance, 'A' is 65 in ASCII
-
 
             // HINTS
             let mymathresult = input2_number - input1_number;

@@ -61,6 +61,10 @@
         /* STYLE FOR THE IMAGE */
         #displayedImage {
             display: none; /* This line is mandatory */
+            width: 1000px;
+            position: absolute;
+            top: 200px;
+            left: 250px;
         }
         .clock {
             position: absolute;
@@ -168,6 +172,19 @@ function displayImage() {
             // Letter
             const input1_letter = document.getElementById("charInput1").value.toUpperCase();
             const input2_letter = document.getElementById("charInput2").value.toUpperCase();
+
+                if (input1_letter.length !== 1 || input2_letter.length !== 1) {
+                    imgElement.src = "images/broken-clock.png"; 
+                    imgElement.style.display = "block"; 
+                    return; 
+                }
+
+        // Check if the characters are letters (A-Z)
+                if (input1_letter < 'A' || input1_letter > 'Z' || input2_letter < 'A' || input2_letter > 'Z') {
+                    imgElement.src = "images/broken-clock.png"; 
+                    imgElement.style.display = "block"; 
+                    return;
+                }
             
             // Number
             const input1_number = input1_letter.charCodeAt(0); //Converts the letter to a number (https://www.ascii-code.com); For instance, 'A' is 65 in ASCII
@@ -176,36 +193,41 @@ function displayImage() {
 
             // HINTS
             let mymathresult = input2_number - input1_number;
-            console.log(mymathresult); // Console log for debugging
+            console.log(mymathresult); //Console is a way to show a value in the console inspector
+            if (mymathresult < 0 || mymathresult > 24) {
+                imgElement.src = "images/broken-clock.PNG"; 
+                imgElement.style.display = "block"; 
+                return; 
+            }
 
-            // Check conditions
             if (mymathresult === 0) { 
-                imgElement.src = "images/0hr.jpg";                
-            } 
-            else if (mymathresult > 16) { 
-                imgElement.src = "images/more16hrs.jpg";                
-            } 
-            else if (mymathresult > 12) { 
-                imgElement.src = "images/more12hrs.jpg";                
-            } 
-            else if (mymathresult > 10) { 
-                imgElement.src = "images/more10hrs.jpg";                
-            } 
-            else if (mymathresult > 8) { 
-                imgElement.src = "images/more8hrs.jpg";                
-            } 
-            else if (mymathresult === 8) { 
-                imgElement.src = "images/8hrs.jpg";                
+        imgElement.src = "images/0hrs.PNG";                
             } 
             else if (mymathresult < 4) { 
-                imgElement.src = "images/less4hrs.jpg";                
+                imgElement.src = "images/less4hrs.PNG";                
             } 
             else if (mymathresult < 6) { 
-                imgElement.src = "images/less6hrs.jpg";                
+                imgElement.src = "images/less6hrs.PNG";                
             } 
             else if (mymathresult < 8) { 
-                imgElement.src = "images/less8hrs.jpg";                
+                imgElement.src = "images/less8hrs.PNG";                
+            } 
+            else if (mymathresult === 8) { 
+                imgElement.src = "images/8hrs.PNG";                
+            } 
+            else if (mymathresult > 20) { 
+                imgElement.src = "images/more20hrs.png";                
+            } 
+            else if (mymathresult > 16) { 
+                imgElement.src = "images/more16hrs.PNG";                
+            } 
+            else if (mymathresult > 12) { 
+                imgElement.src = "images/more12hrs.PNG";                
+            } 
+            else if (mymathresult > 10) { 
+                imgElement.src = "images/more10hrs.PNG";                
             }
+    imgElement.style.display = "block"; // Ensure the image is displayed
 }
     
     

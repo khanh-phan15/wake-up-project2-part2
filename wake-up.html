@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wake-up!</title>
+    <style>
+        @font-face {
+            font-family: 'Control';
+            src: url('fonts/ControlUpright-RegularTNT.woff2') format('woff2'),
+            url('fonts/ControlUpright-RegularTNT.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+        }
+        p1{
+            font-family: 'Control', sans-serif;
+            letter-spacing: 9pt;
+            font-size: 12pt;
+            font-weight: 100;
+            line-height: 17pt;
+            width: 290px; /* Adjust the width as needed */
+            margin: 0 auto; /* Center the column */
+            padding: 10px;
+            text-align: justify; /* Optional: justify text */
+            display: block; /* Ensure it displays as a block */
+            color:rgb(159, 159, 159)
+        }
+
+
+        /* STYLE FOR THE INPUT FIELD */
+        #charInput1 {
+            margin-left: 565px;
+            margin-top: 54px;
+            border: 3px solid rgb(0, 0, 0); 
+            border-radius: 4px;
+            height: 23px;
+            width: 50px;
+        }
+
+        #charInput2 {
+            margin-left: 63px;
+            margin-top: 54px;
+            border: 3px solid rgb(0, 0, 0); 
+            border-radius: 4px;
+            height: 23px;
+            width: 50px;
+        }
+       
+
+        /* STYLE FOR THE SUBMIT BUTTON */
+        #submitButton {
+            position: absolute;
+            top: 62px;
+            left: 814px;            
+            border: 3px solid rgb(0, 0, 0); 
+            border-radius: 4px;
+            height: 27px;
+            width: 27px;
+        }
+
+        /* STYLE FOR THE IMAGE */
+        #displayedImage {
+            display: none; /* This line is mandatory */
+            position: absolute;
+            top: 400px;
+            left: 320px;
+            width: 400px;
+        }
+        .clock {
+            position: absolute;
+            top: 298px;
+            left: 247px;
+            font-family: 'Control', sans-serif;
+            letter-spacing: 9pt;
+            font-size: 30pt;
+            font-weight: 100;
+            width: 900px; 
+            height: 900px;
+            border: none;
+            border-radius: 50%;
+            background-color: none;
+
+        }
+        .number {
+            position: absolute;
+            width: 30px; 
+            height: 30px; 
+            text-align: center;
+            line-height: 30px;
+            font-size: 60px; 
+            font-weight: bold; 
+            color: #000000; 
+        }
+        .title {
+            position: absolute;
+            top: 150px;
+            left: 90px;
+            font-family: 'Control', sans-serif;
+            letter-spacing: 9pt;
+            font-size: 30pt;
+            font-weight: 100;
+            width: 1200px; 
+            height: 1200px; 
+            border: none;
+            border-radius: 50%;
+            background-color: none;
+
+        }
+        .letter {
+            position: absolute;
+            width: 30px; 
+            height: 30px;
+            text-align: center;
+            line-height: 30px; 
+            font-size: 100px; 
+            font-weight: bold; 
+            color: #000000; 
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="number" style="top: 70px; left: 50%; transform: translateX(-50%);">12</div>
+        <div class="number" style="top: 50%; left: 90%; transform: translate(-50%, -50%);">3</div>
+        <div class="number" style="top: 50%; left: 10%; transform: translate(-50%, -50%);">9</div>
+        <div class="number" style="top: 88%; left: 50%; transform: translateX(-50%);">6</div>
+        <div class="number" style="top: 20%; left: 75%; transform: translate(-50%, -50%);">1</div>
+        <div class="number" style="top: 20%; left: 25%; transform: translate(-50%, -50%);">11</div>
+        <div class="number" style="top: 80%; left: 75%; transform: translate(-50%, -50%);">5</div>
+        <div class="number" style="top: 80%; left: 25%; transform: translate(-50%, -50%);">7</div>
+        <div class="number" style="top: 30%; left: 85%; transform: translate(-50%, -50%);">2</div>
+        <div class="number" style="top: 30%; left: 15%; transform: translate(-50%, -50%);">10</div>
+        <div class="number" style="top: 70%; left: 85%; transform: translate(-50%, -50%);">4</div>
+        <div class="number" style="top: 70%; left: 15%; transform: translate(-50%, -50%);">8</div>
+    </div>
+    <div class="title">
+        <div class="letter" style="top: 70px; left: 50%; transform: translateX(-50%);">H</div>
+        <div class="letter" style="top: 50%; left: 90%; transform: translate(-50%, -50%);">R</div>
+        <div class="letter" style="top: 50%; left: 10%; transform: translate(-50%, -50%);">E</div>
+        <div class="letter" style="top: 88%; left: 50%; transform: translateX(-50%);">F</div>
+        <div class="letter" style="top: 20%; left: 75%; transform: translate(-50%, -50%);">O</div>
+        <div class="letter" style="top: 20%; left: 25%; transform: translate(-50%, -50%);">P</div>
+        <div class="letter" style="top: 80%; left: 75%; transform: translate(-50%, -50%);">O</div>
+        <div class="letter" style="top: 80%; left: 25%; transform: translate(-50%, -50%);">S</div>
+        <div class="letter" style="top: 30%; left: 85%; transform: translate(-50%, -50%);">U</div>
+        <div class="letter" style="top: 30%; left: 15%; transform: translate(-50%, -50%);">E</div>
+        <div class="letter" style="top: 70%; left: 85%; transform: translate(-50%, -50%);">S</div>
+        <div class="letter" style="top: 70%; left: 15%; transform: translate(-50%, -50%);">L</div>
+    </div>
+    
+    <!-- INPUT FIELD FOR 1 CHARACTER -->
+    <input type="text" id="charInput1" maxlength="1">
+    <input type="text" id="charInput2" maxlength="1">
+
+    <!-- BUTTON TO DISPLAY IMAGE -->
+    <img src="images/clock-button.png" alt="Show Image" id="submitButton" onclick="displayImage()">
+
+    <!-- IMAGE TO DISPLAY -->
+    <img id="displayedImage" src="" alt="Displayed Image">
+
+    <p1>I have to wake up because if I don’t wake up, I won’t be awake, and if I’m not awake, I can’t do anything, but to wake up, I have to sleep, and to sleep, I have to go to bed, but if I go to bed too late, then waking up will be terrible, but if I don’t go to bed at all, then I won’t even have to wake up because I never slept in the first place, but that’s not good because then I’ll be too tired to work, and if I can’t work, then what was even the point of waking up, but I can’t just not wake up because things need to get done, but things also can’t get done if I wake up too late because then the whole day is wasted, so I have to wake up at a reasonable time, but that depends on when I sleep, and sleeping at a reasonable time means I have to actually go to bed when I say I will, but do I ever do that? No, because I always think I can stay up just a little longer, but that little longer turns into way too long, and now I’m regretting it while I’m trying to wake up, but I still have to wake up because the work isn’t going to do itself, and the cycle continues because I will absolutely make the same mistake again.
+    </p1>
+    
+
+    
+    <!-- Image Display Script Below -->
+    <script>
+
+function displayImage() {
+            const imgElement = document.getElementById("displayedImage");
+
+            // Letter
+            const input1_letter = document.getElementById("charInput1").value.toUpperCase();
+            const input2_letter = document.getElementById("charInput2").value.toUpperCase();
+            
+            // Number
+            const input1_number = input1_letter.charCodeAt(0); //Converts the letter to a number (https://www.ascii-code.com); For instance, 'A' is 65 in ASCII
+            const input2_number = input2_letter.charCodeAt(0); //Converts the letter to a number (https://www.ascii-code.com); For instance, 'A' is 65 in ASCII
+
+
+            // HINTS
+            let mymathresult = input2_number - input1_number;
+            console.log(mymathresult); // Console log for debugging
+
+            // Check conditions
+            if (mymathresult === 0) { 
+                imgElement.src = "images/broken-clock.PNG";                
+            } 
+            else if (mymathresult > 16) { 
+                imgElement.src = "images/more16hrs.jpg";                
+            } 
+            else if (mymathresult > 12) { 
+                imgElement.src = "images/more12hrs.jpg";                
+            } 
+            else if (mymathresult > 10) { 
+                imgElement.src = "images/more10hrs.jpg";                
+            } 
+            else if (mymathresult > 8) { 
+                imgElement.src = "images/more8hrs.jpg";                
+            } 
+            else if (mymathresult === 8) { 
+                imgElement.src = "images/8hrs.jpg";                
+            } 
+            else if (mymathresult < 4) { 
+                imgElement.src = "images/less4hrs.jpg";                
+            } 
+            else if (mymathresult < 6) { 
+                imgElement.src = "images/less6hrs.jpg";                
+            } 
+            else if (mymathresult < 8) { 
+                imgElement.src = "images/less8hrs.jpg";                
+            }
+}
+    
+    
+    </script>
+
+</body>
+</html>

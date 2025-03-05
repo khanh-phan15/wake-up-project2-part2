@@ -37,21 +37,43 @@
        
 
         /* STYLE FOR THE SUBMIT BUTTON */
-        button {
+        .image-button {
             position: absolute;
-            top: 170px;
-            left: 690px;
+            top: 344px;
+            left: 1180px;;
             font-family: 'DanhDa', sans-serif;
             letter-spacing: auto;
-            font-size: 20pt;
-            font-weight: 100;
-            border: 1px solid rgb(0, 0, 0); 
-            color: white;
-            border-radius: 4px;
-            height: 25px;
-            width: 110px;
-            background-color: rgb(0, 0, 0);
+            background-image: url('images/ring.png'); /* Set your image here */
+            background-size: cover; /* Cover the button */
+            background-position: center; /* Center the image */
+            cursor: pointer; /* Change cursor to pointer */
+            transition: transform 0.3s; /* Smooth transition for hover effect */
+            background-color:#000000;
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            border: 5px solid black;
         }
+        .reset-button {
+            position: absolute;
+            top: 344px;
+            left: 235px;
+            font-family: 'DanhDa', sans-serif;
+            letter-spacing: auto;
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            cursor: pointer;
+            background-image: url('images/refresh.png'); /* Set your image here */
+            background-size: cover; /* Cover the button */
+            background-position: center; /* Center the image */
+            cursor: pointer; /* Change cursor to pointer */
+            transition: transform 0.3s; /* Smooth transition for hover effect */
+            background-color:#000000;
+            border: 5px solid black;
+
+        }
+       
 
         /* STYLE FOR THE IMAGE */
         #displayedImage {
@@ -138,10 +160,13 @@
     <input type="text" id="charInput2" maxlength="1">
 
     <!-- BUTTON TO DISPLAY IMAGE -->
-    <button id="showImageButton" onclick="displayImage()">WAKE UP!</button>
+    <button class="image-button" id="showImageButton" onclick="displayImage()"></button>
+    <button class="reset-button" id="resetButton" onclick="location.reload()"></button>
+
 
     <!-- IMAGE TO DISPLAY -->
     <img id="displayedImage" src="" alt="Displayed Image">
+    
     
     <!-- Image Display Script Below -->
     <script>
@@ -176,7 +201,6 @@ function displayImage() {
                 imgElement.style.display = "block"; 
                 return; 
             }
-
             if (mymathresult === 0) { 
         imgElement.src = "images/0hrs.png";                
             } 
